@@ -1,0 +1,22 @@
+tab = [4,3,1,2,5]
+element = 3
+
+def czy_nalezy(tab, element):
+    for e in tab:
+        if e == element:
+            return True
+
+    return False
+
+def czy_zawiera(lista1, lista2):
+    for e in lista2:
+        if not czy_zawiera(lista1, e):
+            return False
+
+    return True
+
+# NAPISZ FUNCKJE remove(napis, usuwany), ktorej wynikiem jest napis powstaly poprzez z napisu
+# bedacego jej pierwszym argumentem, pierwszego wystapienia napisu bedacego jej drugim argumentem
+# Przykladowo wynikiem wywolania remove("abrakadabra", "ab") bedzie napis "rakadabra"
+# W tej funckji main przetestuj dzialanie funckji remove.
+
