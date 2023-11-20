@@ -1,0 +1,46 @@
+# WCZYTAC LICZBE NATURALNA DO ZMIENNEJ 'n' DO KAZDEGO Z PONIZSZYCH PUNKTOW NAPISAC ODPOWIEDNI PROGRAM
+# a) ZNALEZC WSZYSTKIE LICZBY MNIEJSZE OD 'n' WZAJEMNIE PIERRWSZE Z LICZBA 'n'
+# b) ZNALEZC WSZYSTKIE LICZBY DOSKONALE MNIEJSZE OD 'n'
+# c) ZNALEZC WSZYSTKIE LICZBY PODZIELNIKI LICZBY 'n' BEDACE LICZBAMI PIERWSZYMI
+# d) ZNALEZC NAJWIEKSZA LICZBE CIAGU FIBONACCIEGO MNIEJSZA OD LICZBY 'n'
+# e) SPRAWDZIC CZY LICZBE 'n' DA SIE PRZEDSTAWIC W POSTACI SUMY KWADRATOW TRZECH LICZB NATURALNYCH (NIEKONCZENIE ROZNYCH). JEZELI TAK To
+# i. Znalezc liczby naturalne a, b, c, takie że n = a^2+b^2+c^2
+# ii. Znalezc wszystkie liczby naturalne a, b, c, takie ze n = a^2+b^2+c^2.
+
+# pkt b
+
+def doskonala(liczba):
+    suma = 1
+    n = 2
+    while n*n < liczba:
+        if liczba % n == 0:
+            suma += n + liczba/n
+        n += 1
+    if n*n == liczba:
+        suma == liczba
+    return suma == liczba
+
+liczba = int(input("Podaj liczbe: "))
+if doskonala(liczba):
+    print(f"Liczba {liczba} jest doskonala")
+else:
+    print(f"Liczba {liczba} nie jest doskonala")
+
+# pkt a
+
+def grzyb(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def wzglednie__pierwsze(n):
+    wzglednie_pierwsze = []
+    for i in range(1, n):
+        if grzyb(n, i) == 1:
+            wzglednie_pierwsze.append(i)
+    return wzglednie_pierwsze
+
+n = int(input("Podaj liczbe naturalna n: "))
+wynik = wzglednie__pierwsze(n)
+print(f"Liczby mniejsze od {n} wzglednie pierwsze z {n} to: {wynik}")
+
