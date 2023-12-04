@@ -1,0 +1,29 @@
+d = {5:3, 8:4}
+print(d[8])
+d[5]=4
+d[100] = 2
+# napisz funkcje, ktora pobiera lancuch znakow i zwraca jako wynik ile razy wystepuje A i a w tym lancuchu zdan
+
+def ile_liter(lancuch):
+    wystapienia = {}
+    for litera in lancuch:
+        if litera in wystapienia:
+            wystapienia[litera] += 1
+        else:
+            wystapienia[litera] = 1
+    return wystapienia
+
+lancuch = input("Podaj lancuch: ")
+wynik = ile_liter(lancuch)
+
+# 2 rozwiazanie
+
+def ile_znakow(lancuch):
+    slownik = {}
+    suma = 0
+    for i in lancuch:
+        slownik(i) = lancuch.count(i)
+    return slownik
+
+print(ile_znakow(slowo))
+    
