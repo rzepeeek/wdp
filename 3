@@ -22,8 +22,64 @@ def ile_znakow(lancuch):
     slownik = {}
     suma = 0
     for i in lancuch:
-        slownik(i) = lancuch.count(i)
+        slownik[i] = lancuch.count(i)
     return slownik
 
 print(ile_znakow(slowo))
+
+# LISTA BEZ POWTORZEN
+
+lista = [8, 5, 8, 2, 5, 3, 8, 7]
+
+def unikalnosc(lista):
+    wynik = []
+    for e in lista:
+        if e not in wynik:
+            wynik.append(e)
+    return wynik
+
+print(unikalnosc(lista))
+
+# CZESTOSC POWTARZANIA SIE
+
+def czestosc(lista):
+    wynik = {}
+    for e in lista:
+        if e not in wynik:
+            wynik[e] = 1
+        else:
+            wynik[e] += 1
+    return wynik
+
+print(czestosc(lista))
+
+# CZESTOSC POWTARZANIA SIE W SLOWNIKU
+
+slownik = 'abrakadabra'
+
+def ile_razy(slownik):
+    wynik = {}
+    for e in slownik:
+        if e not in wynik:
+            wynik[e] = 1
+        else:
+            wynik[e] += 1
+    return wynik
+
+print(ile_razy(slownik))
+
+# 2 rozwiazanie
+
+def kk(slownik):
+    wynik = {}
+    for k in slownik:
+        if k >= 'a' and k <= 'z':
+            wynik[k] = slownik[k]
+
+    return wynik
+    isalpha(k)
+
+print(kk(slownik))
+
+
     
