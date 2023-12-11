@@ -1,0 +1,8 @@
+// Litere wystepujaca najczesciej w lancuchu podanym jako argument. Jezeli jest kilka to funckja moze zwrocic dowolna z nich
+
+def najczestsza(slownik):
+    return max(set(slownik), key=slownik.count)
+
+slownik = 'Ala ma kota'
+wynik = najczestsza(slownik)
+print(najczestsza(slownik))
