@@ -1,3 +1,14 @@
+// ord i chr
+
+A - 65
+B - 66
+
+a - 97
+b - 98
+
+print(ord('A')) --> 65
+print(chr(65)) --> 'A'
+
 // Litere wystepujaca najczesciej w lancuchu podanym jako argument. Jezeli jest kilka to funckja moze zwrocic dowolna z nich
 
 def najczestsza(slownik):
@@ -6,3 +17,26 @@ def najczestsza(slownik):
 slownik = 'Ala ma kota'
 wynik = najczestsza(slownik)
 print(najczestsza(slownik))
+
+// 2 rozwiazanie
+
+def mind(d):
+    kluczmin = next(iter(d))
+    for item in d:
+        if d[iter] < d[kluczmin]:
+            kluczmin = item
+    return kluczmin
+
+print(mind(kluczmin))
+
+// program ktory wczytuje liczby podowane przez uzytkowanika dodaje je do slownika i okresla liczbe ich wystapien w razie podania elementu niebedacego liczba calkowita program ma wypisac odpowiedni
+// komunikat i kontynuowac dzialanie po nacisnieciu klawisza <enter> bez uprzedniego podania wartosci program ma wypisac slownik i zakonczyc zadanie
+
+def main():
+    liczby = []
+    
+    while True:
+        try:
+            liczba = input("Podaj liczbe calkowita lub wcisnij enter aby zakonczyc: ")
+            if liczba == ""
+                break
