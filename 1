@@ -15,22 +15,39 @@ def czy_zawiera(lista1, lista2):
 
     return True
 
-# NAPISZ FUNCKJE remove(napis, usuwany), ktorej wynikiem jest napis powstaly poprzez z napisu
-# bedacego jej pierwszym argumentem, pierwszego wystapienia napisu bedacego jej drugim argumentem
-# Przykladowo wynikiem wywolania remove("abrakadabra", "ab") bedzie napis "rakadabra"
-# W tej funckji main przetestuj dzialanie funckji remove.
+// NAPISZ FUNCKJE remove(napis, usuwany), ktorej wynikiem jest napis powstaly poprzez z napisu
+// bedacego jej pierwszym argumentem, pierwszego wystapienia napisu bedacego jej drugim argumentem
+// Przykladowo wynikiem wywolania remove("abrakadabra", "ab") bedzie napis "rakadabra"
+// W tej funckji main przetestuj dzialanie funckji remove.
+
+napis = 'abrakadabra'
+usuwany = 'ab'
 
 def remove(napis, usuwany):
-    nowy_napis = napis.replace(usuwany,'',1)
-    return nowy_napis
+    index = napis.find(usuwany)
+    if index != -1:
+        napis = napis[:index] + napis[index + len(usuwany):]
+    return napis
 
-def main():
-    print(remove('abrakadabra', 'ab'))
-    return
-main()
+wynik = remove(napis, usuwany)
+print(f"{wynik}")
 
-# NAPISZ FUNCKJE remove_all(napis, usuwany) ktorej wynikiem jest napis powstaly poprzez usuniecie
-# z napisu bedacego jej pierwszym argumentem, wsyzstkich wystapien napisu bedacego jej drugim argumentem
-# przykladowo wynikiem wywolania remove("abrakadabra", "ab") bedzie napis "rakadra" W funkcji
-# main przetestuj dzialaie funckji remove_all
+// NAPISZ FUNCKJE remove_all(napis, usuwany) ktorej wynikiem jest napis powstaly poprzez usuniecie
+// z napisu bedacego jej pierwszym argumentem, wsyzstkich wystapien napisu bedacego jej drugim argumentem
+// przykladowo wynikiem wywolania remove("abrakadabra", "ab") bedzie napis "rakadra" W funkcji
+// main przetestuj dzialaie funckji remove_all
+
+napis = 'abrakadabra'
+usuwany = 'ab'
+
+def remove_all(napis, usuwany):
+    while napis.find(usuwany) != -1:
+        index = napis.find(usuwany)
+        napis = napis[:index] + napis[index + len(usuwany):]
+    return napis
+
+wynik = remove_all(napis, usuwany)
+print(f"{wynik}")
+
+
 
