@@ -1,15 +1,31 @@
-# WCZYTAC LICZBE NATURALNA DO ZMIENNEJ 'n' DO KAZDEGO Z PONIZSZYCH PUNKTOW NAPISAC ODPOWIEDNI PROGRAM
-# a) ZNALEZC WSZYSTKIE LICZBY MNIEJSZE OD 'n' WZAJEMNIE PIERRWSZE Z LICZBA 'n'
-# b) ZNALEZC WSZYSTKIE LICZBY DOSKONALE MNIEJSZE OD 'n'
-# c) ZNALEZC WSZYSTKIE LICZBY PODZIELNIKI LICZBY 'n' BEDACE LICZBAMI PIERWSZYMI
-# d) ZNALEZC NAJWIEKSZA LICZBE CIAGU FIBONACCIEGO MNIEJSZA OD LICZBY 'n'
-# e) SPRAWDZIC CZY LICZBE 'n' DA SIE PRZEDSTAWIC W POSTACI SUMY KWADRATOW TRZECH LICZB NATURALNYCH (NIEKONCZENIE ROZNYCH). JEZELI TAK To
-# i. Znalezc liczby naturalne a, b, c, takie że n = a^2+b^2+c^2
-# ii. Znalezc wszystkie liczby naturalne a, b, c, takie ze n = a^2+b^2+c^2.
+// WCZYTAC LICZBE NATURALNA DO ZMIENNEJ 'n' DO KAZDEGO Z PONIZSZYCH PUNKTOW NAPISAC ODPOWIEDNI PROGRAM
+// a) ZNALEZC WSZYSTKIE LICZBY MNIEJSZE OD 'n' WZAJEMNIE PIERRWSZE Z LICZBA 'n'
+// b) ZNALEZC WSZYSTKIE LICZBY DOSKONALE MNIEJSZE OD 'n'
+// c) ZNALEZC WSZYSTKIE LICZBY PODZIELNIKI LICZBY 'n' BEDACE LICZBAMI PIERWSZYMI
+// d) ZNALEZC NAJWIEKSZA LICZBE CIAGU FIBONACCIEGO MNIEJSZA OD LICZBY 'n'
+// e) SPRAWDZIC CZY LICZBE 'n' DA SIE PRZEDSTAWIC W POSTACI SUMY KWADRATOW TRZECH LICZB NATURALNYCH (NIEKONCZENIE ROZNYCH). JEZELI TAK To
+// i. Znalezc liczby naturalne a, b, c, takie że n = a^2+b^2+c^2
+// ii. Znalezc wszystkie liczby naturalne a, b, c, takie ze n = a^2+b^2+c^2.
 
-#OPTYMALNY ALGORYTM
+// pkt a
 
-# pkt b
+def grzyb(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def wzglednie__pierwsze(n):
+    wzglednie_pierwsze = []
+    for i in range(1, n):
+        if grzyb(n, i) == 1:
+            wzglednie_pierwsze.append(i)
+    return wzglednie_pierwsze
+
+n = int(input("Podaj liczbe naturalna n: "))
+wynik = wzglednie__pierwsze(n)
+print(f"Liczby mniejsze od {n} wzglednie pierwsze z {n} to: {wynik}")
+
+// pkt b
 
 def doskonala(liczba):
     suma = 1
@@ -28,25 +44,7 @@ if doskonala(liczba):
 else:
     print(f"Liczba {liczba} nie jest doskonala")
 
-# pkt a
-
-def grzyb(a, b):
-    while b:
-        a, b = b, a % b
-    return a
-
-def wzglednie__pierwsze(n):
-    wzglednie_pierwsze = []
-    for i in range(1, n):
-        if grzyb(n, i) == 1:
-            wzglednie_pierwsze.append(i)
-    return wzglednie_pierwsze
-
-n = int(input("Podaj liczbe naturalna n: "))
-wynik = wzglednie__pierwsze(n)
-print(f"Liczby mniejsze od {n} wzglednie pierwsze z {n} to: {wynik}")
-
-# pkt b inny sposob
+// pkt b inny sposob
 
 def dzielniki(liczba):
     wynik = []
@@ -81,4 +79,23 @@ if czy_doskonala:
     print(True)
 else:
     print(False)
+
+// pkt c
+
+def pierwsze(n):
+    p_dzielniki = [i for i in range(2, n) if n % i and czy_pierwsza(n)]
+
+def czy_pierwsza(liczba):
+    if liczba < 2:
+        return False
+    for i in range(2, int(liczba*0.5) + 1):
+        if liczba % i == 0:
+            return False
+    return True
+
+n = int(input("Podaj liczbe (n): "))
+wynik = czy_pierwsza(n)
+print(f"Wynik: {wynik}")
+
+
 
