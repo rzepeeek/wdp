@@ -40,3 +40,61 @@ def main():
             liczba = input("Podaj liczbe calkowita lub wcisnij enter aby zakonczyc: ")
             if liczba == ""
                 break
+
+def czytaj(nazwa_pliku):
+    slownik = {}
+    
+    with open(nazwa_pliku, 'r') as plik:
+        linie = plik.readlines()
+        
+    for linia in linie:
+        linia = linia.strip()
+        if linia and linia[0].isalpha():
+            litera = linia[0].lower()
+            slownik[litera] = slownik.get(litera, 0) + 1
+            
+    return slownik
+
+def main():
+    nazwa_pliku = 'grzyb.txt'
+    
+    try:
+        slownik = czytaj(nazwa_pliku)
+        
+        print("Wynik:")
+        for litera, ilosc in slownik.items():
+            print(f"{litera}: {ilosc}")
+            
+    except FileNotFoundError:
+        print(f"Plik o nazwie {nazwa_pliku} nie zostal znaleziony.")
+        
+main()
+
+from collections import defaultdict
+
+def tworz(nazwa_pliku):
+    slownik = defaultdict(int)
+    
+    with open(nazwa_pliku, 'r') as plik:
+        for linia in plik:
+            elementy = linia.strip().split()
+            for element in elementy:
+                if element.isdigit():
+                    slownik[int(element)] += 1
+                    
+    return slownik
+
+def main():
+    nazwa_pliku = 'grzyb.txt'
+    
+    try:
+        slownik = tworz(nazwa_pliku)
+        
+        print("Wynik:")
+        for liczba, ilosc in slownik.items():
+            print(f"{liczba}: {ilosc}")
+            
+    except FileNotFoundError:
+        print(f"Plik o nazwie {nazwa_pliku} nie zostal odnaleziony.")
+        
+main()
